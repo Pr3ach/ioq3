@@ -18,7 +18,7 @@
 #
 
 __author__ = "Preacher"
-__version__ = "1.0"
+__version__ = "1.1"
 
 import socket
 import re
@@ -55,7 +55,6 @@ class Ioq3():
                 self.sock.close()
             raise Exception("getinfo failed")
 
-        self.check_vars()
         if self.sock:
             self.sock.close()
 
@@ -98,28 +97,6 @@ class Ioq3():
             if l[i] == var:
                 return l[i+1]
         return -1
-
-    def check_vars(self):
-        """
-        Check whether a Cvar was set on the server or not, ie: if it was in the buffer. If not, set it to 'Not set'
-        """
-        if self.allowvote == -1:
-            self.allowvote = "Not set"
-        if self.version == -1:
-            self.version = "Not set"
-        if self.gametype == -1:
-            self.gametype = "Not set"
-        if self.nextmap == -1:
-            self.nextmap = "Not set"
-        if self.clients == -1:
-            self.clients = "Not set"
-        if self.max_clients == -1:
-            self.max_clients = "Not set"
-        if self.map == -1:
-            self.map = "Not set"
-        if self.hostname == -1:
-            self.hostname = "Not set"
-        return None
 
     def getstatus(self):
         try:
