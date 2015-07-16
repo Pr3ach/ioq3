@@ -18,10 +18,21 @@
 #
 
 __author__ = "Preacher"
-__version__ = "1.1"
+__version__ = "1.2"
 
 import socket
 import re
+
+GAMETYPES = {1: "LMS",
+             2: "FFA",
+             3: "TDM",
+             4: "TS",
+             5: "FTL",
+             6: "CNH",
+             7: "CTF",
+             8: "BM",
+             9: "JUMP",
+             10: "FT"}
 
 class Ioq3():
     """
@@ -125,3 +136,11 @@ class Ioq3():
         self.max_clients = self.get_var(list_info, "sv_maxclients")
         self.map = self.clean_color_string(self.get_var(list_info, 'mapname'))
         return 1
+
+    def gametype2str(self, gametype):
+        """
+        Return a gametype string from gametype id
+        """
+        if gametype in GAMETYPES:
+            return GAMETYPES[gametype]
+        return ""
