@@ -18,7 +18,7 @@
 #
 
 __author__ = "Preacher"
-__version__ = "1.5"
+__version__ = "1.5.1"
 
 import socket
 import re
@@ -160,7 +160,7 @@ class Ioq3():
         """
         if gametype in GAMETYPES:
             return GAMETYPES[gametype]
-        return ""
+        return "FFA" # Default gametype is FFA
 
     def check_vars(self):
         """
